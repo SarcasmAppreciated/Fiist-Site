@@ -5,16 +5,16 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Fiist - Dining Redefined</title>
+		<title>Fiist - Efficient Waitlist Management.</title>
 		
-		<link rel="image_src" href="https://si0.twimg.com/profile_images/2985355222/7873790d05cdc9ef6b73c815586c91d4.png"  />
-		<meta name="description" content="The world's first restaurant relationship management system. Dining redefined.">
+		<link rel="image_src" href="http://dev.fii.st/lp/images/stop.jpg"  />
+		<meta name="description" content="Fiist increases seating efficiencies and overall guest experiences for restaurants. Sign up now to reserve your spot in our limited beta test.">
 		
-		<meta property="og:title" content="Fiist" />
+		<meta property="og:title" content="Fiist - Efficient Waitlist Management." />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://fii.st" />
-		<meta property="og:image" content="https://si0.twimg.com/profile_images/2985355222/7873790d05cdc9ef6b73c815586c91d4.png" />
-		<meta property="og:description" content="The world's first restaurant relationship management system. Dining redefined." />
+		<meta property="og:url" content="http://signup.fii.st" />
+		<meta property="og:image" content="http://dev.fii.st/lp/images/stop.jpg" />
+		<meta property="og:description" content="Fiist increases seating efficiencies and overall guest experiences for restaurants. Sign up now to reserve your spot in our limited beta test." />
 
 		<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no">
 		
@@ -24,24 +24,48 @@
 		
 		<script src="scripts/jquery.min.js"></script>
 		<script src="scripts/fiist.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+
+			_gaq.push(['_setAccount', 'UA-37042679-1']);
+
+			_gaq.push(['_setDomainName', 'fii.st']);
+
+			_gaq.push(['_trackPageview']);
+
+
+
+
+			(function() {
+
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+			})();
+			
+			var tag = document.createElement('script');
+
+				tag.src = "https://www.youtube.com/iframe_api";
+				var firstScriptTag = document.getElementsByTagName('script')[0];
+				firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		</script>
 	</head>
 	<body>
 		<div id="header">
-			<!-- <div id="logo">
-				<div id="logomargin">
-					<h1>FIIST</h1>		
-				</div>
-			</div> -->
+			<div id="logo"></div>
 			<div id="navigation">
 				<ul id="navlist">
 					<li class="navlinks topheader">
-						<a href="index.html" class="formatnavlinks bold">RESTAURANTS</a>
+						<a href="index.html" onclick="stopPlayer()" class="formatnavlinks bold">RESTAURANTS</a>
 					</li>
 					<li class="navlinks topheader">
-						<a href="diners.html" class="formatnavlinks">DINERS</a>
+						<a href="diners.html" onclick="stopPlayer()" class="formatnavlinks">DINERS</a>
 					</li>											
 					<li class="navlinks">
-						<div class="contentbutton signbutton top">SIGN UP</div>	
+						<div id="restsign" class="contentbutton signbutton top">SIGN UP</div>	
 					</li>							
 					<!-- <a href="#login" class="navlinks loginbutton orange">LOGIN</a> -->
 				</ul>
@@ -51,21 +75,27 @@
 		<div id="opencontent">
 			<div id="ipad"></div>		
 			<div id="bar">
-				<div id="arrow">
-				</div>
+				<div id="arrow"></div>
 			</div>			
 			<div id="openpitch">
 				<h1 class="hlogo">FIIST</h1>
 				<div class="space"><br/></div>
-				<div class="orange hrule"></div>
-				
+				<div class="orange hrule"></div>				
 				<div class="space"><br/><br/><br/>
 				</div>
 				<h1 class="hcontent">Waitlist Management.<br>Reimagined.</h1>
 				<div class="contentbutton orange" id="getstarted">GET STARTED</div>
 				<div class="contentbutton grey" id="learnmore">LEARN MORE</div>
-			</div>			
-		</div>		
+				<div class="demobutton" id="videoopen"></div>
+			</div>
+			<div id="videobacking"></div>
+			<div id="videobox">
+				<div id="videoclosesign" onclick="closePlayer()">X</div>				
+				<div id="fiistvideo"></div>
+				
+			</div>
+		</div>
+		
 		<div id="container">
 			<div class="content large stopbg" id="stop">
 				<div class="contentmargin first">
@@ -140,14 +170,16 @@
 					<div id="closesign">X</div>
 				</div>
 				<form action="" method="post">
-					<input class="fields name" type="text" id="restaurant_name" name="restaurant[name]" placeholder="First Name"></input>
-					<input class="fields name" type="text" id="restaurant_name" name="restaurant[name]"placeholder="Last Name"></input>
-					<input class="fields long" type="text" id="restaurant_email" name="restaurant[email]"placeholder="Email"></input>
-					<input class="fields long" type="text" id="restaurant_restaurant" name="restaurant[restaurant]"placeholder="Restaurant Name"></input>
-					<input class="fields long" type="text" id="restaurant_city" name="restaurant[city]"placeholder="Restaurant Location"></input>
+					<input class="fields name" type="text" id="restaurant_name" name="restaurant[name]" placeholder="First Name*"></input>
+					<input class="fields name" type="text" id="restaurant_name" name="restaurant[name]"placeholder="Last Name*"></input>
+					<input class="fields long" type="text" id="restaurant_email" name="restaurant[email]"placeholder="Email*"></input>
+					<input class="fields long" type="text" id="restaurant_restaurant" name="restaurant[restaurant]"placeholder="Restaurant Name*"></input>
+					<input class="fields long" type="text" id="restaurant_city" name="restaurant[city]"placeholder="Restaurant Location*"></input>
 					<p class="submitmessage">Thank you for reserving your spot in our beta!</p>
+					<p class="redirect fields">Not a restaurant? <a class="recolor" href="diners.html">Sign up as a Diner!</a></p>
 					<input class="contentbutton signbutton signform fields" type="submit" name="commit" value="SIGN UP"></input>
 				</form>
+				
 			</div>
 		</div>		
 		<div id="footer">
@@ -168,5 +200,38 @@
 					<p class="copyright">© 2013 Fiist</p>
 			</div>			
 		</div>
+		<script>
+			//video
+			$(document).ready(function(){
+				onYouTubeIframeAPIReady();
+			});
+			
+			var player;
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player('fiistvideo', {
+					width: 850,
+					height: 500,
+					videoId: 'BOm3FysmPNM',
+					playerVars: { 'autoplay': 0, 'rel': 0,  'allowScriptAccess': "always" },
+					events: {
+					  'onReady': onPlayerReady
+					}
+				});
+
+			}
+			
+			function onPlayerReady(event) {
+				player.setPlaybackQuality("hd720");
+			}
+			
+			function stopPlayer(){
+				player.stopVideo();
+			}
+			
+			function closePlayer(){
+				$("#videobox, #videobacking").fadeOut();
+				player.stopVideo();				
+			}
+		</script>
 	</body>
 </html>

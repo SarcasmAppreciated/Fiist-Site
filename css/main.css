@@ -53,7 +53,7 @@ h3{
 	font-size: 25px;
 	font-family: 'Lato',sans-serif;
 	font-weight: 300;
-	color: #000;
+	color: #666;
 }
 
 a{
@@ -72,7 +72,7 @@ p.ttext{
 
 p.submitmessage{
 	display: none;
-	color: #000;
+	color: #999;
 	margin-top: 20px;
 }
 
@@ -81,8 +81,23 @@ p.copyright{
 	font-size: 16px;
 }
 
+a.recolor{
+	color: #999;
+	text-decoration: underline;	
+}
+
+a.recolor:visited{
+	color: #e67e22;
+}
+
 p.restrict{
 	width: 500px;
+}
+
+p.columntext{
+	margin-top: 50px;
+	color: #333;
+	font-size: 18px;
 }
 
 p.centertext{
@@ -97,6 +112,16 @@ p.centertext.small{
 	left: 50%;
 	margin: 0 -300px;
 	position: absolute;
+}
+
+p.redirect{
+	width: 340px;
+	float: left;
+	height: 60px;
+	font-size: 16px;
+	color: #999;
+	margin-left: 20px;
+	margin-top: 20px;
 }
 
 input.name{
@@ -158,15 +183,10 @@ input.long{
 	height: 60px;
 	width: 150px;
 	float: left;
-	background-color: #999;
+	background: url(../images/fiistlogosmall.png) center no-repeat;
+	background-size: contain;
+	margin-top: 7.5px;
 	margin-left: 50px;
-	color: #fff;
-	text-align: center;
-	font-family: 'Quicksand', 'Lato', sans-serif;
-}
-
-#logomargin{
-	margin: 15px;
 }
 
 #navigation{
@@ -434,6 +454,79 @@ input.long{
 	display: none;
 }
 
+#ipad.iphone{
+	background: url(../images/iphone.png) bottom center no-repeat;
+	background-size: contain;
+	height: 700px;
+	width: 600px;
+}
+
+#iphonescreen{	
+	height: 382px;
+	width: 225px;
+	left: 20%;
+	top: 15%;
+	position: absolute;
+	overflow: hidden;
+}
+
+#videobox{
+	height: 528.125px;
+	width: 900px;
+	background-color: #111;
+	position: absolute;
+	left: 50%;
+	margin: 150px -400px;
+	text-align: center;
+	display: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#fiistvideo{
+	height: 478.125px;
+	width: 850px;
+	margin-top: 25px;
+	display: inline-block;
+}
+
+.demobutton{
+	width: 200px;
+	height: 109px;
+	margin-top: 20px;
+	margin-left: 0px;
+	float: left;
+	background: url(../images/demobutton.png) center no-repeat;
+	cursor: pointer;
+	-webkit-box-shadow: 0 2px 10px rgba(2,3,3,.75);
+	-moz-box-shadow: 0 2px 10px rgba(2,3,3,.75);
+	box-shadow: 0 2px 10px rgba(2,3,3,.75);
+	border: solid 2px #959595;
+}
+
+#videoclosesign{
+	height: 40px;
+	width: 40px;
+	font-size: 30px;
+	position: absolute;
+	right: -20px;
+	top: -20px;
+	background-color: #000;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+}
+
+#videobacking{
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	opacity: .8;
+	position: absolute;
+	display: none;
+}
+
 #arrow{
 	bottom: 15px;
 	left: 50%;
@@ -475,7 +568,7 @@ input.long{
 }
 
 #container.diners{
-	height: 775px;
+	height: 925px;
 }
 
 .content{
@@ -520,7 +613,7 @@ input.long{
 }
 
 .content.diners{
-	height: 100%;
+	height: 700px;
 }
 
 .contentmargin{
@@ -553,8 +646,19 @@ input.long{
 .columnpicture{
 	height: 260px;
 	width: 100%;
-	background-color: #000;
+	background: url(../images/waitanywhere.jpg) center no-repeat;
+	background-size: cover;
 	margin-bottom: 50px;
+}
+
+.columnpicture.secondguess{
+	background: url(../images/secondguess.jpg) center no-repeat;
+	background-size: cover;
+}
+
+.columnpicture.cprofile{
+	background: url(../images/cprofile.jpg) top center no-repeat;
+	background-size: cover;
 }
 
 .tabs{
@@ -775,6 +879,9 @@ ul.footerlist{
 }
 
 @media (max-width: 1023px){
+	p.redirect{
+		width: 300px;
+	}
 	input.name{
 		width: 132px;
 	}
@@ -784,6 +891,22 @@ ul.footerlist{
 	#ipad{
 		width: 0;
 		background: none;
+	}
+	#ipad.iphone{
+		width: 0;
+		background: none;
+	}
+	#iphonescreen{
+		display: none;
+	}
+	.demobutton{
+		display: none;
+	}
+	#container.diners{
+		height: 1550px;
+	}
+	.content.diners{
+		height: 1300px;
 	}
 	.contentmargin{
 		width: 700px;		
@@ -863,6 +986,12 @@ ul.footerlist{
 	p.restrict{
 		width: 280px;
 	}
+	p.redirect{
+		font-size: 10px;
+		width: 220px;
+		height: 12px;
+		margin-top: 5px;
+	}
 	p.centertext{
 		width: 280px;
 		margin: 0;
@@ -890,6 +1019,9 @@ ul.footerlist{
 	}
 	#header{
 		position: absolute;
+	}
+	.hidden{
+		display: none !important;
 	}
 	#logo{
 		display: none;
@@ -929,11 +1061,17 @@ ul.footerlist{
 	#container{
 		height: 2200px;
 	}
+	#container.diners{
+		height: 2100px;
+	}	
 	.content{
 		height: 600px;
 	}
 	.content.large{
 		height: 500px;
+	}
+	.content.diners{
+		height: 1900px;
 	}
 	.content.know{
 		height: 950px;
@@ -951,6 +1089,9 @@ ul.footerlist{
 	}
 	.contentmargin.small{
 		margin-top: 0px;
+	}
+	.column{
+		margin-left: 0;
 	}
 	.stopbg{
 		background-size: 280px auto;
@@ -974,7 +1115,7 @@ ul.footerlist{
 	.contentbutton.signbutton.signform{
 		height: 30px;
 		line-height: 30px;
-		margin-top: 10px;
+		margin-top: 5px;
 		width: 240px;
 	}
 	.tabs{

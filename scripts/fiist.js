@@ -1,7 +1,7 @@
 $(document).ready(function(){			
 	//intro
 	$("#openpitch, #ipad").fadeIn(1000, function(){
-		if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))) {
+		if( !(/Android|webOS|iPhone|iPad|iPod|BB/i.test(navigator.userAgent))) {
 			$("#bar").delay(500).fadeIn(1000);
 		}
 	});
@@ -22,18 +22,7 @@ $(document).ready(function(){
 			});
 		}
 	});	
-	
-	//sign up form
-	$("#signupbutton").click(function(){
-		$("#signupbacking").animate({height:"300px"}, "fast",function(){
-			$("html, body").animate({ scrollTop: signuptop.top }, "slow");
-			$("#signupform").fadeIn("slow");
-		});		
-	});
-	$("#closesign").click(function(){		
-		$("#signupbacking").hide("fast");
-	});
-	
+		
 	$(function(){	
 		var exp = /^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i;
 		var email = $('#restaurant_email');
@@ -46,10 +35,9 @@ $(document).ready(function(){
 			var check = exp.test(email.val());
 
 			if (!check) {
-				$("#restaurant_email").addClass("errorbackground");
+				email.addClass("errorbackground");
 			} else {
-				//$.post(url, $this.serialize());
-				$("#restaurant_email").removeClass("errorbackground");
+				email.removeClass("errorbackground");
 				$(".fields").fadeOut("fast",function(){
 					$(".submitmessage").fadeIn("fast");
 				});
@@ -65,7 +53,41 @@ $(document).ready(function(){
 		$("html, body").animate({ scrollTop: $("#opencontent").height()}, "slow");						
 	});					
 	$("#getstarted, .top").click(function(){
-		$("html, body").animate({ scrollTop: signuptop.top }, 1500);						
+		$("html, body").animate({ scrollTop: signuptop.top }, 1500);
+		determinePath();
+	});	
+	
+	//sign up form
+	$("#signupbutton").click(function(){
+			determinePath();
+	});	
+	$("#closesign").click(function(){		
+		$("#signupform").fadeOut("slow",function(){
+			$("#signupbacking").animate({height:"0px"}, "fast");		
+		});
 	});
-					
+	
+	function determinePath(){
+		var pathname = window.location.pathname;
+		if(pathname.indexOf("diners") != -1){
+			openSign(240);
+		} else {
+			openSign(300);
+		}		
+	}
+	
+	function openSign(x){
+		$("#signupbacking").animate({height: x + "px"}, "fast",function(){
+			$("html, body").animate({ scrollTop: signuptop.top }, "slow");
+			$("#signupform").fadeIn("slow");
+		});
+	}
+	
+	//video
+	$("#videoopen").click(function(){				
+		$("#videobox").fadeIn(function(){
+			$("#videobacking").delay(500).fadeIn("slow");
+		});		
+	});
 });
+
