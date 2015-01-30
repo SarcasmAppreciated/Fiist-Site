@@ -414,6 +414,7 @@ input.long{
 
 #opencontent.diners{
 	background: url(../images/dsplash.jpg) center no-repeat;
+	background-size: cover;
 }
 
 #openpitch{
