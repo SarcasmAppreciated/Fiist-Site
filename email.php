@@ -1,5 +1,5 @@
 <?php
-$emails = "../signups.txt";
+$emails = "signups.txt";
 $email_handle = fopen($emails, 'a');
 $emailData = $_POST["email"] . "\n";
 fwrite($email_handle, $emailData);
